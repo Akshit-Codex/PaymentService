@@ -17,13 +17,14 @@ public class StripeGateway implements PaymentGateway
     //While pushing this code Im getting error saying there is a violation that is using name apiKey,
     // so change the name.
     //private String apiKey="sk_test_51SRK02QnwRKzrFfiZuLqrWryOIIwE10ytKMwvjJ5CajCI1LnFqVTD59mBY5UkghRRUTFE2ZNBNUGxZWezd4MpzJO00FQwPhMtW";
-    private String apnaKey="sk_test_51SRK02QnwRKzrFfiZuLqrWryOIIwE10ytKMwvjJ5CajCI1LnFqVTD59mBY5UkghRRUTFE2ZNBNUGxZWezd4MpzJO00FQwPhMtW";
+    //private String apnaKey="sk_test_51SRK02QnwRKzrFfiZuLqrWryOIIwE10ytKMwvjJ5CajCI1LnFqVTD59mBY5UkghRRUTFE2ZNBNUGxZWezd4MpzJO00FQwPhMtW";
 
     @Override
     public String generatePaymentLink()
     {
-        try {
-            Stripe.apiKey = this.apnaKey;
+        try
+        {
+        //    Stripe.apiKey = this.apnaKey;
 
             Price price = getPrice();
 
