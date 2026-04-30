@@ -6,6 +6,7 @@ import com.stripe.model.PaymentLink;
 import com.stripe.model.Price;
 import com.stripe.param.PaymentLinkCreateParams;
 import com.stripe.param.PriceCreateParams;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +17,15 @@ public class StripeGateway implements PaymentGateway
 {
     //While pushing this code Im getting error saying there is a violation that is using name apiKey,
     // so change the name.
-    //private String apiKey="sk_test_51SRK02QnwRKzrFfiZuLqrWryOIIwE10ytKMwvjJ5CajCI1LnFqVTD59mBY5UkghRRUTFE2ZNBNUGxZWezd4MpzJO00FQwPhMtW";
-    //private String apnaKey="sk_test_51SRK02QnwRKzrFfiZuLqrWryOIIwE10ytKMwvjJ5CajCI1LnFqVTD59mBY5UkghRRUTFE2ZNBNUGxZWezd4MpzJO00FQwPhMtW";
+    @Value("${stripe.api.key}")
+    private String apiKey;
 
     @Override
     public String generatePaymentLink()
     {
         try
         {
-        //    Stripe.apiKey = this.apnaKey;
+            Stripe.apiKey = this.apiKey;
 
             Price price = getPrice();
 
