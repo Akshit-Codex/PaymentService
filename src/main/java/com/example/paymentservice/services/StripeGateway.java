@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 @Primary
 public class StripeGateway implements PaymentGateway
 {
-    //While pushing this code Im getting error saying there is a violation that is using name apiKey,
-    // so change the name.
     @Value("${stripe.api.key}")
     private String apiKey;
 
